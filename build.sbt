@@ -4,16 +4,19 @@ organization := "oose"
 
 version := "0.0.1"
 
+val akkaVersion = "2.2.3"
+
+val scalazVersion = "7.0.5"
+
 libraryDependencies ++= Seq (
-	"org.scalaz" %% "scalaz-core" % "7.0.5",
+	"org.scalaz" %% "scalaz-core" % scalazVersion,
         // only for testing (scope test)
         "org.specs2" %% "specs2" % "2.3.7" % "test",
-        "org.scalaz" %% "scalaz-concurrent" % "7.0.5",
-        "org.scalaz" %% "scalaz-effect" % "7.0.5",
-        "org.scalaz" %% "scalaz-typelevel" % "7.0.5",
-        "com.typesafe.akka" %% "akka-actor" % "2.2.1",
-        "com.typesafe.akka" %% "akka-agent" % "2.2.1",
-        "org.specs2" %% "specs2" % "2.2.2" % "test",
+        "org.scalaz" %% "scalaz-concurrent" % scalazVersion,
+        "org.scalaz" %% "scalaz-effect" % scalazVersion,
+        "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
+        "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+        "com.typesafe.akka" %% "akka-agent" % akkaVersion,
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
 
