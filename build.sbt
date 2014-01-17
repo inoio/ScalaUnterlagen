@@ -20,6 +20,10 @@ libraryDependencies ++= Seq (
 // keep only specifications ending with Spec or Unit
 testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
 
+// configure the typesafe console for akka monitoring
+// see project/plugins.sbt
+atmosSettings
+
 // this would be an example to set other default src/test directories
 	
 // scalaSource in Compile := baseDirectory.value / "src"
