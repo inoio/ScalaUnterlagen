@@ -25,5 +25,13 @@ trait RecursiveReverse {
   def take(l: List[Int], n: Int): List[Int] = {
     List.empty
   }
+  
+  /**
+   * Implementiere eine rekursive Funktion, die zwei Listen miteinander verknüpft,
+   * so dass gilt: List(1,2,3) + List(4,5,6) = List(1,2,3,4,5,6)
+   */
+  def add(l1: List[Int], l2 : List[Int]) : List[Int] = {
+    List.empty
+  }
 
 }
