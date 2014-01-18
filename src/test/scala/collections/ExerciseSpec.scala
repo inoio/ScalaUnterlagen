@@ -31,6 +31,7 @@ class ExerciseSpec extends SpecificationWithJUnit {
       val solution = sut.alleStädteNamen
       solution must contain(exactly(
         "Kairo",
+        "Alexandria",
         "Tunis",
         "Sousse",
         "Berlin",

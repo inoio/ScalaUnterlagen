@@ -17,8 +17,8 @@ trait RecursiveReverse {
 
   /**
    * Implementiere eine rekursive Funktion, die von einer gegebenen Liste
-   * n Elemente vorne entfernt, und die restlichen Werte zurückliefert.
-   * take(List(1,2,3,4,5), 3 ) = List(1,2)
+   * n Elemente vorne entfernt, und diese Werte zurückliefert.
+   * take(List(1,2,3,4,5), 3 ) = List(1,2,3)
    * Möchte man mehr Elemente nehmen als die Liste hat, wird die größtmögliche Menge zurückgeben.
    * start sbt mit : ~testOnly recursion.RecursionSpec
    */
