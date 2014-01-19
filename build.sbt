@@ -31,6 +31,9 @@ testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
 // see project/plugins.sbt
 atmosSettings
 
+// ScalaStyle
+org.scalastyle.sbt.ScalastylePlugin.Settings
+
 // this would be an example to set other default src/test directories
 	
 // scalaSource in Compile := baseDirectory.value / "src"
