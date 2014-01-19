@@ -1,5 +1,5 @@
 package recursion
-
+import scala.collection._
 trait RecursiveReverse {
 
   /**
@@ -25,15 +25,15 @@ trait RecursiveReverse {
    * start sbt mit : ~testOnly recursion.RecursionSpec
    */
   def take(l: List[Int], n: Int): List[Int] = {
-    def internal(l: List[Int], result: List[Int], n: Int): List[Int] = {
+    def internal(l: List[Int], result: mutable.ListBuffer[Int], n: Int): List[Int] = {
       if (n > 0) {
         l match {
-          case Nil => result
+          case Nil => result.result
           case head :: tail => internal(tail, result :+ head, n - 1)
         }
-      } else { result }
+      } else { result.result }
     }
-    internal(l, Nil, n)
+    internal(l, mutable.ListBuffer.empty, n)
   }
 
   /**
