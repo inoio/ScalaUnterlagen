@@ -14,9 +14,13 @@ libraryDependencies ++= Seq (
         "org.specs2" %% "specs2" % "2.3.7" % "test",
         "org.scalaz" %% "scalaz-concurrent" % scalazVersion,
         "org.scalaz" %% "scalaz-effect" % scalazVersion,
+        // https://github.com/scala/async
+        // will be introduced in scala 2.11.x
+        // "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
         "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
         "com.typesafe.akka" %% "akka-actor" % akkaVersion,
         "com.typesafe.akka" %% "akka-agent" % akkaVersion,
+        "com.typesafe.akka" %% "akka-testkit" % akkaVersion %  "test",
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
 
@@ -33,8 +37,38 @@ atmosSettings
 
 //scalaSource in Test := baseDirectory.value / "test"
 
+// definition of kind - thanks to http://eed3si9n.com/learning-scalaz/Kinds.html
+// 
 initialCommands in console := """
   import scalaz._
   import Scalaz._
+  def kind[A: scala.reflect.runtime.universe.TypeTag]: String = {
+  import scala.reflect.runtime.universe._
+  def typeKind(sig: Type): String = sig match {
+    case PolyType(params, resultType) =>
+      (params map { p =>
+        typeKind(p.typeSignature) match {
+          case "*" => "*"
+          case s   => "(" + s + ")"
+        }
+      }).mkString(" -> ") + " -> *"
+    case _ => "*"
+  }
+  def typeSig(tpe: Type): Type = tpe match {
+    case SingleType(pre, sym) => sym.companionSymbol.typeSignature
+    case ExistentialType(q, TypeRef(pre, sym, args)) => sym.typeSignature
+    case TypeRef(pre, sym, args) => sym.typeSignature
+  }
+  val sig = typeSig(typeOf[A])
+  val s = typeKind(sig)
+  sig.typeSymbol.name + "'s kind is " + s + ". " + (s match {
+    case "*" =>
+      "This is a proper type."
+    case x if !(x contains "(") =>
+      "This is a type constructor: a 1st-order-kinded type."
+    case x =>
+      "This is a type constructor that takes type constructor(s): a higher-kinded type."
+  })
+  }
 """
 
