@@ -9,5 +9,3 @@ object Land {
   def apply(name: String, staedte: Stadt*): Land = new Land(name, staedte.toList)
 }
 case class Stadt(name: String, einwohner: Int, haupstadt: Boolean = false)
-
- 

@@ -51,5 +51,4 @@ trait Exercise {
     def summeAllerEinwohnerDerWelt : Int = {
       0 // delete me
     }
-  
 }

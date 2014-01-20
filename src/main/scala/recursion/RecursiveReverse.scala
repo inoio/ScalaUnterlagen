@@ -33,5 +33,4 @@ trait RecursiveReverse {
   def add(l1: List[Int], l2 : List[Int]) : List[Int] = {
     List.empty
   }
-
 }

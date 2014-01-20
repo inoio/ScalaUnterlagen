@@ -34,12 +34,6 @@ atmosSettings
 // ScalaStyle
 org.scalastyle.sbt.ScalastylePlugin.Settings
 
-// this would be an example to set other default src/test directories
-	
-// scalaSource in Compile := baseDirectory.value / "src"
-
-//scalaSource in Test := baseDirectory.value / "test"
-
 // definition of kind - thanks to http://eed3si9n.com/learning-scalaz/Kinds.html
 // 
 initialCommands in console := """
