@@ -1,5 +1,15 @@
 package demo.pack
 
+// wildcard
+import scala.collection._
+// scala.collection is already in scope
+import mutable._
+// alias
+import java.util.{Random => RandomGenerator}
+// multiple single imports
+import java.util.{List, Vector, Set}
+
+
 class ScopeDemo {}
 
 package demo {
