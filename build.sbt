@@ -26,6 +26,8 @@ libraryDependencies ++= Seq (
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
 
+scalacOptions ++= Seq("-Xlint", "-unchecked", "-deprecation")
+
 // keep only specifications ending with Spec or Unit
 testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
 
