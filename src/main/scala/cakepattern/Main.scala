@@ -2,7 +2,8 @@ package cakepattern
 
 object Main extends App with ConcreteCake1Component with Cake2Component {
   val cake2Service = new Cake2Service {}
-
+  val cake1Service = new ConcreteCake1Service()
+  
   println(cake2Service.cake2Function())
 }
 
@@ -16,7 +17,7 @@ trait Cake1Component {
 
 trait ConcreteCake1Component extends Cake1Component {
   self =>
-  val cake1Service = new ConcreteCake1Service
+  val cake1Service: ConcreteCake1Service
 
   class ConcreteCake1Service extends Cake1Service {
     def cake1Function(): String = "Hello"

@@ -16,7 +16,10 @@ object Main extends App {
   val x = Person.unapply(pers2)
   println(x)
   
+  val -->(n1, v1)  = Person("Klink", "Markus")
+  println(s"$n1 $v1")
   val name --> vorname = Person("Klink", "Markus")
+  println(s"$name $vorname")
 }
 
 class Person(val name: String, val vorname: String)
