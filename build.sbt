@@ -16,7 +16,9 @@ libraryDependencies ++= Seq (
         "org.scalaz" %% "scalaz-effect" % scalazVersion,
         // https://github.com/scala/async
         // will be introduced in scala 2.11.x
-        // "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
+        "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
+        // dispatch - async http Library
+        // "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
         "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
         "com.typesafe.akka" %% "akka-actor" % akkaVersion,
         "com.typesafe.akka" %% "akka-agent" % akkaVersion,
