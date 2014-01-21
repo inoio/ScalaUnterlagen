@@ -16,13 +16,17 @@ libraryDependencies ++= Seq (
         "org.scalaz" %% "scalaz-effect" % scalazVersion,
         // https://github.com/scala/async
         // will be introduced in scala 2.11.x
-        // "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
+        "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
+        // dispatch - async http Library
+        // "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
         "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
         "com.typesafe.akka" %% "akka-actor" % akkaVersion,
         "com.typesafe.akka" %% "akka-agent" % akkaVersion,
         "com.typesafe.akka" %% "akka-testkit" % akkaVersion %  "test",
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
+
+scalacOptions ++= Seq("-Xlint", "-unchecked", "-deprecation")
 
 // keep only specifications ending with Spec or Unit
 testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
@@ -31,11 +35,8 @@ testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
 // see project/plugins.sbt
 atmosSettings
 
-// this would be an example to set other default src/test directories
-	
-// scalaSource in Compile := baseDirectory.value / "src"
-
-//scalaSource in Test := baseDirectory.value / "test"
+// ScalaStyle
+org.scalastyle.sbt.ScalastylePlugin.Settings
 
 // definition of kind - thanks to http://eed3si9n.com/learning-scalaz/Kinds.html
 // 
