@@ -4,6 +4,8 @@ organization := "oose"
 
 version := "0.0.1"
 
+scalaVersion := "2.10.3"
+
 val akkaVersion = "2.2.3"
 
 val scalazVersion = "7.0.5"
