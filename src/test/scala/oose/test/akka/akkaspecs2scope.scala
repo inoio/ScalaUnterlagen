@@ -15,5 +15,8 @@ abstract class AkkaSpecs2Scope extends TestKit(ActorSystem())
   with ImplicitSender {
   
   // make sure we shut down the actor system after all tests have run
-  def after = system.shutdown()
+  def after = {
+    system.shutdown()
+    system.awaitTermination()
+  }
 }
