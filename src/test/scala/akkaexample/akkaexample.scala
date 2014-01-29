@@ -3,9 +3,10 @@ package akkaexample
 import akka.actor._
 import org.specs2.mutable._
 import org.specs2.time._
-import oose.akka.test._
+import oose.test.akka._
 import akka.testkit._
 import scala.concurrent.duration._
+import scala.language.postfixOps._
 
 class AkkaExampleSpec extends Specification with NoTimeConversions {
 
@@ -33,7 +34,7 @@ class AkkaExampleSpec extends Specification with NoTimeConversions {
       val monitorActor = system.actorOf(Props(classOf[Monitor], nodeActor.ref), "monitor")
 
       monitorActor ! IsUpRequest
-      nodeActor.expectMsg(5 seconds, Ping)
+      nodeActor expectMsg(5 seconds, Ping)
     }
   }
 }

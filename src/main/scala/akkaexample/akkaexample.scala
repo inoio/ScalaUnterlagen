@@ -8,6 +8,7 @@ import scala.concurrent._
 import scala.concurrent.duration._
 import scala.util._
 import akka.actor.SupervisorStrategy._
+import scala.language.postfixOps
 
 class Monitor(netWorkNode: ActorRef) extends Actor with ActorLogging {
 
