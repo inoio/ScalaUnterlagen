@@ -1,3 +1,5 @@
+*.sc
+.worksheet/
 .classpath
 .project
 .settings
