@@ -1,4 +1,4 @@
-package recursion
+package kata.recursion
 import scala.collection._
 trait RecursiveReverse {
 

@@ -1,4 +1,4 @@
-package collections
+package kata.collections
 
 import org.specs2.mutable._
 import org.junit.runner._

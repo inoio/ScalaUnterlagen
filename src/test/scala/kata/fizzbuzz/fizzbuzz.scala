@@ -11,31 +11,42 @@ import org.specs2.matcher.Parameters
 class FizzbuzzSpec extends Specification with ScalaCheck {
 
   val solution = new Fizzbuzz with Exercise {}
-  val smallInteger = Gen.choose(0,500)
-  
-  implicit val params = Parameters(minTestsOk = 20, maxDiscardRatio = 200)
+
+  // Number generators
+  val smallInteger = Gen.choose(0, 1000)
+  val by3 = for {
+    i <- smallInteger
+  } yield i * 3
+  val by5 = for {
+    i <- smallInteger
+  } yield i * 5
+  val by3and5 = for {
+    i <- smallInteger
+
+  } yield i * 3 * 5
 
   "Fizzbuzz" should {
-    "return correct values for multiples of 3" in {
-      Prop.forAll(smallInteger) { (n: Int) =>
-        ((n >= 0) && (n % 3 == 0) && (n % 5 != 0)) ==>
+    "return fizz for multiples of 3" in {
+      Prop.forAll(by3) { (n: Int) =>
+        (n % 5 != 0) ==>
           (solution.fizzbuzz(n) must be equalTo ("fizz"))
       }
     }
 
-    "return correct values for multiples of 5" in {
-      Prop.forAll(smallInteger) { (n: Int) =>
-        ((n >= 0) && (n % 3 != 0) && (n % 5 == 0)) ==>
+    "return buzz for multiples of 5" in {
+      Prop.forAll(by5) { (n: Int) =>
+        (n % 3 != 0) ==>
           (solution.fizzbuzz(n) must be equalTo ("buzz"))
       }
     }
-    "return correct values for multiples of 3 and 5" in {
-      Prop.forAll(smallInteger) { (n: Int) =>
-        ((n >= 0) && (n % 3 == 0) && (n % 5 == 0)) ==>
+    
+    "return fizzbuzz for multiples of 3 and 5" in {
+      Prop.forAll(by3and5) { (n: Int) =>
           (solution.fizzbuzz(n) must be equalTo ("fizzbuzz"))
       }
     }
-    "return correct values for other values" in {
+    
+    "return i for other values" in {
       Prop.forAll(smallInteger) { (n: Int) =>
         ((n >= 0) && (n % 3 != 0) && (n % 5 != 0)) ==>
           (solution.fizzbuzz(n) must be equalTo (n.toString()))

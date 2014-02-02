@@ -1,4 +1,4 @@
-package functions
+package kata.functions
 
 trait Exercise {
 
