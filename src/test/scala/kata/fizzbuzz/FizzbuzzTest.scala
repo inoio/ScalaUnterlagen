@@ -8,7 +8,7 @@ import org.specs2.runner.JUnitRunner
 import org.scalacheck.Gen
 import org.specs2.matcher.Parameters
 @RunWith(classOf[JUnitRunner])
-class FizzbuzzSpec extends Specification with ScalaCheck {
+class FizzbuzzTest extends Specification with ScalaCheck {
 
   val solution = new Fizzbuzz with Exercise {}
   val smallInteger = Gen.choose(0,500)

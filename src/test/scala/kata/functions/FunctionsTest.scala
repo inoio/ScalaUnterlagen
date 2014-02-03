@@ -1,11 +1,12 @@
-package functions
+package kata.functions
 
 import org.specs2.mutable._
 import org.junit.runner._
 import org.specs2.runner._
 import org.specs2.ScalaCheck
+
 @RunWith(classOf[JUnitRunner])
-class ExerciseSpec extends Specification with ScalaCheck {
+class FunctionsTest extends Specification with ScalaCheck {
  
   val solution = new Exercise {}
 

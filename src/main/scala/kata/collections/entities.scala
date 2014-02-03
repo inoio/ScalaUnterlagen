@@ -1,4 +1,4 @@
-package collections
+package kata.collections
 
 case class Kontinent(name: String, laender: List[Land])
 

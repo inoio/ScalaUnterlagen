@@ -1,4 +1,4 @@
-package traits
+package kata.traits
 
 trait Cache[A] {
   /**

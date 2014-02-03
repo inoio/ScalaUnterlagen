@@ -1,4 +1,4 @@
-package akkaexample
+package kata.akkaexample
 
 import akka.actor._
 import akka.pattern._

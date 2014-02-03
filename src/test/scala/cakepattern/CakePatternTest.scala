@@ -2,7 +2,11 @@ package cakepattern
 
 import org.specs2.mutable._
 import org.specs2.mock.Mockito
-class CakePatternSpec extends Specification with Mockito {
+import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
+
+@RunWith(classOf[JUnitRunner])
+class CakePatternTest extends Specification with Mockito {
 
   object CakeTest extends SensorDataClientComponent with SensorDataProviderComponent {
     val sensorDataClient = new SensorDataClient()

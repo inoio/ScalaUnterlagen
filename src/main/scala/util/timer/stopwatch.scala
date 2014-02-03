@@ -1,4 +1,4 @@
-package utiltimer
+package util.timer
 
 object stopwatch {
  def apply[A](f: => A, comment : String = "") = {

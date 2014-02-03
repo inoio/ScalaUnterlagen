@@ -1,4 +1,4 @@
-package collections
+package kata.collections
 
 // Kontinent ->* Land ->* Stadt
 trait Data {

@@ -2,8 +2,11 @@ package oscilloscope.ui
 package parser
 
 import org.specs2.mutable._
+import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
 
-class OscilloscopeParserSpec extends Specification {
+@RunWith(classOf[JUnitRunner])
+class OscilloscopeParserTest extends Specification {
 
   val parser = new OscilloscopeParser()
 

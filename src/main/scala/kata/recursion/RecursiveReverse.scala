@@ -1,4 +1,4 @@
-package recursion
+package kata.recursion
 
 trait RecursiveReverse {
 
