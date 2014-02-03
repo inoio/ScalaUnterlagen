@@ -5,7 +5,7 @@ import org.junit.runner._
 import org.specs2.runner._
 
 @RunWith(classOf[JUnitRunner])
-class CollectionsSpec extends SpecificationWithJUnit {
+class CollectionsTest extends SpecificationWithJUnit {
 
   val sut: Exercise = new Exercise with Data {}
 

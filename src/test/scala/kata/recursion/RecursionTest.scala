@@ -7,7 +7,7 @@ import org.specs2.runner._
 import org.specs2.ScalaCheck
 import org.scalacheck.Prop
 @RunWith(classOf[JUnitRunner])
-class RecursionSpec extends Specification with ScalaCheck {
+class RecursionTest extends Specification with ScalaCheck {
 
   val solution = new RecursiveReverse {}
 

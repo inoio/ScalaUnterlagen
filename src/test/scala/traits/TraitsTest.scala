@@ -5,7 +5,7 @@ import org.junit.runner._
 import org.specs2.runner._
 import org.specs2.ScalaCheck
 @RunWith(classOf[JUnitRunner])
-class TraitsSpec extends Specification with ScalaCheck {
+class TraitsTest extends Specification with ScalaCheck {
 
   case class CacheCheck(a: Int) {
     var hits = 0

@@ -5,8 +5,11 @@ import org.specs2.mutable._
 import org.specs2.time._
 import oose.akka.test._
 import akka.testkit._
+import org.junit.runner.RunWith
+import org.specs2.runner.JUnitRunner
 
-case class AkkaExampleSpec extends Specification with NoTimeConversions {
+@RunWith(classOf[JUnitRunner])
+class AkkaExampleTest extends Specification with NoTimeConversions {
 
   // do not execute tests in parallel
   // makes analyzing mistakes easier
