@@ -29,7 +29,7 @@ libraryDependencies ++= Seq (
 scalacOptions ++= Seq("-Xlint", "-unchecked", "-deprecation")
 
 // keep only specifications ending with Spec or Unit
-testOptions := Seq(Tests.Filter(s => Seq("Spec", "Unit").exists(s.endsWith(_))))
+testOptions := Seq(Tests.Filter(s => Seq("Spec", "Test").exists(s.endsWith(_))))
 
 // configure the typesafe console for akka monitoring
 // see project/plugins.sbt
