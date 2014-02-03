@@ -1,4 +1,4 @@
-package oose.akka.test
+package oose.test.akka
 
 import org.specs2.mutable.After
 import org.specs2.mutable._
