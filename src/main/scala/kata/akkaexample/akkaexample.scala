@@ -15,7 +15,7 @@ class Monitor(netWorkNode: ActorRef) extends Actor with ActorLogging {
   import context._
   import collection._
 
-  var counter = 0
+  var counter: Long = 0
 
   private case object TimerTick
 
@@ -29,10 +29,16 @@ class Monitor(netWorkNode: ActorRef) extends Actor with ActorLogging {
     case _: IllegalArgumentException => Stop
     case _: Exception => Escalate
   }
+
+  private def createSubMonitor(sender: ActorRef): ActorRef = {
+    val sm = actorOf(Props(classOf[SubMonitor], sender))
+    sm
+  }
+  
   def receive: Receive = LoggingReceive {
     case IsUpRequest =>
       log.info(s"Anfrage von ${sender}")
-      actorOf(Props(classOf[SubMonitor], sender))
+      createSubMonitor(sender)
 
     case TimerTick =>
       val reply = netWorkNode ? Ping
@@ -44,7 +50,7 @@ class Monitor(netWorkNode: ActorRef) extends Actor with ActorLogging {
         case Failure(e) =>
           log.info(self.toString())
           val selection = Option(actorSelection(self.path / "*"))
-          selection.map(s => s ! Down)
+          selection.foreach(s => s ! Down)
           system.scheduler.scheduleOnce(1 second, self, TimerTick)
         case _ =>
           // log.error("unexpected message")
