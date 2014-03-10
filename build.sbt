@@ -4,11 +4,20 @@ organization := "oose"
 
 version := "0.0.1"
 
+// Note: not all Akka versions are compatible with
+// the atmos console, check atmos plugin in
+// project/plugins.sbt
 val akkaVersion = "2.2.3"
 
 val scalazVersion = "7.0.5"
 
-libraryDependencies ++= Seq (
+val slickVersion = "2.1.0-SNAPSHOT"
+
+// set up cross build if necessary
+// e.g. +compile compiles against all listed versions
+crossScalaVersions := Seq( "2.10.3", "2.11.0-M8")
+
+libraryDependencies ++=  Seq (
 	"org.scalaz" %% "scalaz-core" % scalazVersion,
         // only for testing (scope test)
         "org.specs2" %% "specs2" % "2.3.7" % "test",
@@ -19,12 +28,21 @@ libraryDependencies ++= Seq (
         "org.scala-lang.modules" %% "scala-async" % "0.9.0-M4",
         // dispatch - async http Library
         // "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
+        // slick dependencies
+        "com.typesafe.slick" %% "slick" % slickVersion,
+        "ch.qos.logback"    %   "logback-classic"   % "1.0.7",
+        "com.h2database" % "h2" % "1.3.175",
+        "org.slf4j" % "slf4j-simple" % "1.7.6",
+        "joda-time" % "joda-time" % "2.3",
+        "org.joda" % "joda-convert" % "1.5",
+        "com.github.tototoshi" %% "slick-joda-mapper" % "1.0.1",
         "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
         "com.typesafe.akka" %% "akka-actor" % akkaVersion,
         "com.typesafe.akka" %% "akka-agent" % akkaVersion,
         "com.typesafe.akka" %% "akka-testkit" % akkaVersion %  "test",
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
+
 
 scalacOptions ++= Seq("-Xlint", "-unchecked", "-deprecation")
 
