@@ -7,9 +7,9 @@ version := "0.0.1"
 // Note: not all Akka versions are compatible with
 // the atmos console, check atmos plugin in
 // project/plugins.sbt
-val akkaVersion = "2.2.3"
+val akkaVersion = "2.2.4"
 
-val scalazVersion = "7.0.5"
+val scalazVersion = "7.0.6"
 
 val slickVersion = "2.1.0-SNAPSHOT"
 
