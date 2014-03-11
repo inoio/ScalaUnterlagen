@@ -1,0 +1,20 @@
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <withJansi>true</withJansi>
+    <encoder>
+      <pattern>[%thread] %highlight(%-5level) - %boldBlue(%msg %n)</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="scala.slick.jdbc" level="DEBUG"/>
+
+  <!-- Strictly speaking, the level attribute is not necessary since -->
+  <!-- the level of the root level is set to DEBUG by default.       -->
+  <root level="DEBUG">          
+    <appender-ref ref="STDOUT" />
+  </root>  
+  
+</configuration>
