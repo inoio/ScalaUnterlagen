@@ -4,6 +4,7 @@
 .project
 .settings
 .cache
+.idea
 *~
 target/
 /bin
