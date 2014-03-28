@@ -20,9 +20,19 @@ Dann
     cd Teilnehmer
     sbt
     
-Und in der sbt Console
+Und in der sbt Console für
+
+#####Eclipse
 
     eclipse with-source=true
+    
+
+#####Intellij
+
+    gen-idea
+    
+*Hinweis*: Es gibt viele Entwickler, die sehr glücklich mit Scala und IntelliJ arbeiten. Ich arbeite mit Eclipse und kenne da die Tricks, wenn mal was nicht funktioniert.
+    
     
 Downloads für sbt gibt es unter http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html.
 Nach Möglichkeit diese Schritte vorm Beginn des Workshops ausführen, da recht viele Sourcen und Jar Dateien heruntergeladen werden. So kommt es beim Start nicht zu Verzögerungen.
