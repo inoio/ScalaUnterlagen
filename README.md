@@ -5,6 +5,13 @@ ScalaUnterlagen
 Clone dieses Repository mit
 
     git clone https://github.com/oose/ScalaUnterlagen.git Teilnehmer
+    
+oder aber bei GitHub einen Fork erstellen und mit Hilfe von
+    
+    git clone <my repository url>
+    git remote add upstream https://github.com/oose/ScalaUnterlagen.git
+    
+einen Verweis auf das Upstream Repository erstellen.
 
 
 Dann
