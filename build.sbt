@@ -8,7 +8,7 @@ scalaVersion := "2.10.3"
 
 val akkaVersion = "2.2.3"
 
-val scalazVersion = "7.0.5"
+val scalazVersion = "7.1.0-M6"
 
 libraryDependencies ++= Seq (
 	"org.scalaz" %% "scalaz-core" % scalazVersion,
@@ -28,9 +28,9 @@ libraryDependencies ++= Seq (
         "com.chuusai" % "shapeless" % "2.0.0-M1" cross CrossVersion.full
 )
 
-addCompilerPlugin("org.brianmckenna" %% "wartremover" % "0.7")
+//addCompilerPlugin("org.brianmckenna" %% "wartremover" % "0.8")
 
-scalacOptions in (Compile, compile) ++= Seq("-P:wartremover:traverser:org.brianmckenna.wartremover.warts.Unsafe")
+//scalacOptions in (Compile, compile) ++= Seq("-P:wartremover:only-warn,wartremover:traverser:org.brianmckenna.wartremover.warts.Unsafe")
 
 scalacOptions ++= Seq("-Xlint", "-unchecked", "-deprecation", "-feature")
 
