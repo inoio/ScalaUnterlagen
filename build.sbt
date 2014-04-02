@@ -10,10 +10,12 @@ val akkaVersion = "2.2.3"
 
 val scalazVersion = "7.1.0-M6"
 
+val specs2Version = "2.3.10-scalaz-"+scalazVersion
+
 libraryDependencies ++= Seq (
 	"org.scalaz" %% "scalaz-core" % scalazVersion,
         // only for testing (scope test)
-        "org.specs2" %% "specs2" % "2.3.7" % "test",
+        "org.specs2" %% "specs2" % specs2Version % "test",
         "org.scalaz" %% "scalaz-concurrent" % scalazVersion,
         "org.scalaz" %% "scalaz-effect" % scalazVersion,
         // https://github.com/scala/async
