@@ -1,3 +1,9 @@
+//
+// Proxy configuration:
+// set e.g. http_proxy=http://username:password@hostname:port;  export http_proxy
+// in your .profile file
+//
+
 name := "Training"
 
 organization := "oose"
@@ -41,6 +47,7 @@ testOptions := Seq(Tests.Filter(s => Seq("Spec", "Test").exists(s.endsWith(_))))
 
 // configure the typesafe console for akka monitoring
 // see project/plugins.sbt
+// currently only works for the Akka 2.2.x series, not Akka 2.3.x
 atmosSettings
 
 // ScalaStyle
