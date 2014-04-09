@@ -24,32 +24,6 @@ object Main extends App {
   val p4 = p3.leftBirds(3)
   println(s"Schlechtes Ergebnis: $p4")
 
-  /**
-   * Implementiere die Klasse PoleDancer neu. Überlege dir eine typsichere API.
-   * Wie können Aufrufe von rightBirds / leftBirds miteinander verkettet werden, 
-   * so dass es keine Toten und Wiederauferstehungen gibt?
-   */
-
-  case class PoleDancer2(birdsLeft: Int = 0, birdsRight: Int = 0) {
-    private def isValid(birdsLeft: Int, birdsRight: Int) = {
-      (birdsLeft >= 0 && birdsRight >= 0 && math.abs(birdsLeft - birdsRight) <= 3)
-    }
-    def rightBirds(birds: Int): Option[PoleDancer2] =
-      if (isValid(birdsLeft, birdsRight + birds))
-        Some(copy(birdsRight = birdsRight + birds))
-      else None
-    def leftBirds(birds: Int): Option[PoleDancer2] =
-      if (isValid(birdsLeft + birds, birdsRight))
-        Some(copy(birdsLeft = birdsLeft + birds))
-      else None
-  }
   
-  val p5 = PoleDancer2()
-  val result = for {
-    x <- p5.rightBirds(1)
-    y <- x.leftBirds(-1)
-    z <- y.leftBirds(3)
-  } yield z
-  println(result)
   
 }
