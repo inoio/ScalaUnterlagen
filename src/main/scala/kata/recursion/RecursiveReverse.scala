@@ -12,7 +12,6 @@ trait RecursiveReverse {
    */
   def reverse(l: List[Int]): List[Int] = {
     List.empty // delete me
-    
   }
 
   /**
@@ -33,4 +32,13 @@ trait RecursiveReverse {
   def add(l1: List[Int], l2 : List[Int]) : List[Int] = {
     List.empty
   }
+  
+  /**
+   * Implementiere das cartesische Product.
+   * cp([[1,2],[3],[4,5]]) = [[1,3,4],[1,3,5],[2,3,4],[2,3,5]]
+   * SCHWIERIG, aber kurzer Code.
+   */
+  def cp(input : List[List[Int]])  : List[List[Int]] = {
+     List(List())
+   }
 }
