@@ -4,7 +4,7 @@ object Main extends App {
 
   /**
    * Aufgabe:
-   * (aus Learn yourself some Haskell fro greater good)
+   * (aus Learn yourself some Haskell for greater good)
    * 
    * Ein Drahtseilartist mit einer Balancierstange auf der sich rechts und links Vögel
    * niederlassen können, ist so lange in Balance, wie der Unterschied der Vögel links und rechts

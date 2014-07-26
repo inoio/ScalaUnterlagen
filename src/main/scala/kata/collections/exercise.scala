@@ -22,33 +22,64 @@ trait Data {
 }
 
 trait Exercise {
-  self : Data =>
-    
-    def alleNamenAllerKontinente : List[String] = {
-      kontinente.map(kontinent => kontinent.name)
-    }
-    
-    def alleLänderNamen : List[String] = {
-      List.empty
-    }
-    
-    def alleStädteNamen : List[String] = {
-      List.empty
-    }
-    
-    def alleStädteinDeutschland : List[String] = {
-      List.empty
-    }
-    
-    def alleHauptstädte : List[String] = {
-      List.empty
-    }
-    
-    def dieGrößteStadt : Stadt = {
-      Stadt("deleteMe",0)
-    }
-    
-    def summeAllerEinwohnerDerWelt : Int = {
-      0 // delete me
-    }
+  self: Data =>
+
+  def alleNamenAllerKontinente: List[String] = {
+    kontinente.map(kontinent => kontinent.name)
+    for {
+      k <- kontinente
+    } yield { k.name }
+  }
+
+  def alleLänderNamen: List[String] = {
+    kontinente.flatMap(kontinent => (kontinent.laender.map(l => l.name)))
+
+    for {
+      k <- kontinente
+      l <- k.laender
+    } yield { l.name }
+  }
+
+  def alleStädteNamen: List[String] = {
+    kontinente.flatMap(kontinent => (kontinent.laender.flatMap(l => (l.staedte.map(s => s.name)))))
+    for {
+      k <- kontinente
+      l <- k.laender
+      s <- l.staedte
+    } yield { s.name }
+  }
+
+  def alleStädteinDeutschland: List[String] = {
+    kontinente.flatMap(kontinent => (kontinent.laender.flatMap(l => (l.staedte.map(s => s.name)))))
+    for {
+      k <- kontinente
+      l <- k.laender if (l.name == "Deutschland")
+      s <- l.staedte
+    } yield { s.name }
+  }
+
+  def alleHauptstädte: List[String] = {
+    for {
+      k <- kontinente
+      l <- k.laender
+      s <- l.staedte if (s.haupstadt)
+    } yield { s.name }
+  }
+
+  def dieGrößteStadt: Stadt = {
+    val result = for {
+      k <- kontinente
+      l <- k.laender
+      s <- l.staedte
+    } yield { s }
+    result.maxBy(stadt => stadt.einwohner)
+  }
+
+  def summeAllerEinwohnerDerWelt: Int = {
+    (for {
+      k <- kontinente
+      l <- k.laender
+      s <- l.staedte
+    } yield { s.einwohner }).sum
+  }
 }

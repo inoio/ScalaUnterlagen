@@ -1,5 +1,5 @@
 package cakepattern
-
+import scala.io.StdIn._
 trait SensorDataProviderComponent {
   self =>
   val sensorDataProvider: SensorDataProvider

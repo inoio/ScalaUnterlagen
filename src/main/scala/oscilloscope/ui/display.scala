@@ -52,7 +52,7 @@ trait InputComponent {
      */
     def command: Command = {
       print(" > ")
-      val result = readLine()
+      val result = scala.io.StdIn.readLine()
       parser(result) match {
         case Some(r) =>
           println(s"Confirmed: $r")

@@ -7,16 +7,14 @@ trait Exercise {
    * @return Double => Double
    */
   def gerade(m: Double, y0: Double): Double => Double = {
-    math.abs _ // just here to get a proper result type
-    // Solution here:
+   x => m * x + y0
   }
 
   /**
    * Überführe die Funktion gerade mit einer Zeile in die folgende Gestalt.
    */
   def foo: (Double => (Double => (Double => Double))) = {
-    { x: Double => y: Double => z: Double => x + y } // just here to get a proper result type
-    // Solution here:
+   (gerade _).curried
   }
 
   /**
@@ -26,7 +24,6 @@ trait Exercise {
    * @see scala.Function
    */
   def bar(f: (Double => (Double => (Double => Double)))): (Double, Double, Double) => Double = {
-    { (x: Double, y: Double, z: Double) => 0.0 } // just here to get a proper result type
-    // Solution here:
+   Function.uncurried(f)
   }
 }
