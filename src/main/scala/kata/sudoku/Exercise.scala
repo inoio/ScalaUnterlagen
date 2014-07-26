@@ -37,7 +37,30 @@ trait Exercise {
    cp(matrix).map(cp)
  }
  
- val valid : Grid => Boolean = ???
+ val valid : Grid => Boolean = {
+   
+   val rows : Grid => List[Row[Digit]] = { matrix => matrix }
+   
+   val columns : Grid => List[Row[Digit]] = { matrix  =>
+     matrix match {
+       case xs :: Nil => for {
+         x <- xs
+       } yield List(x)
+       case xs :: xss =>
+         (xs, columns(xss)).zipped map (_ :: _)
+     }  
+   }
+   
+   val group : Grid => List[Grid] = {
+     grid =>
+       grid match {
+         case Nil => Nil
+         case _ => (grid take 3) :: group(grid drop 3)
+       }
+   }
+   
+   
+ }
  
  val filterGrid : List[Grid] => List[Grid] = _.filter(valid)
  
