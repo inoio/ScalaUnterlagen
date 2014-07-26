@@ -29,7 +29,8 @@ Und in der sbt Console für
 
 #####Intellij
 
-    gen-idea
+    Projekt öffnen und im Vezeichnis die build.sbt öffnen. Ggf. verneinen, wenn auf bestehende 
+    Projektdateien verwiesen wird, und das Projekt neu erzeugen.
     
 *Hinweis*: Es gibt viele Entwickler, die sehr glücklich mit Scala und IntelliJ arbeiten. Ich arbeite mit Eclipse und kenne da die Tricks, wenn mal was nicht funktioniert.
     
