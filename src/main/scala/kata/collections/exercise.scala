@@ -25,61 +25,26 @@ trait Exercise {
   self: Data =>
 
   def alleNamenAllerKontinente: List[String] = {
-    kontinente.map(kontinent => kontinent.name)
-    for {
-      k <- kontinente
-    } yield { k.name }
+    List("")
   }
 
   def alleLänderNamen: List[String] = {
-    kontinente.flatMap(kontinent => (kontinent.laender.map(l => l.name)))
-
-    for {
-      k <- kontinente
-      l <- k.laender
-    } yield { l.name }
+    List("")
   }
 
   def alleStädteNamen: List[String] = {
-    kontinente.flatMap(kontinent => (kontinent.laender.flatMap(l => (l.staedte.map(s => s.name)))))
-    for {
-      k <- kontinente
-      l <- k.laender
-      s <- l.staedte
-    } yield { s.name }
+    List("")
   }
 
   def alleStädteinDeutschland: List[String] = {
-    kontinente.flatMap(kontinent => (kontinent.laender.flatMap(l => (l.staedte.map(s => s.name)))))
-    for {
-      k <- kontinente
-      l <- k.laender if (l.name == "Deutschland")
-      s <- l.staedte
-    } yield { s.name }
+    List("")
   }
 
   def alleHauptstädte: List[String] = {
-    for {
-      k <- kontinente
-      l <- k.laender
-      s <- l.staedte if (s.haupstadt)
-    } yield { s.name }
+    List("")
   }
 
-  def dieGrößteStadt: Stadt = {
-    val result = for {
-      k <- kontinente
-      l <- k.laender
-      s <- l.staedte
-    } yield { s }
-    result.maxBy(stadt => stadt.einwohner)
-  }
+  def dieGrößteStadt: Stadt = ???
 
-  def summeAllerEinwohnerDerWelt: Int = {
-    (for {
-      k <- kontinente
-      l <- k.laender
-      s <- l.staedte
-    } yield { s.einwohner }).sum
-  }
+  def summeAllerEinwohnerDerWelt: Int = 0
 }
