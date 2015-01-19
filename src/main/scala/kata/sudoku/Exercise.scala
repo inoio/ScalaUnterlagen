@@ -40,28 +40,43 @@ trait Exercise {
     cp(matrix).map(cp)
   }
 
+  /**
+   * split a list into a list of 3.
+   */
+  def group[A](list: List[A]): List[List[A]] = {
+    list match {
+      case Nil => Nil
+      case _   => (list take 3) :: group(list drop 3)
+    }
+  }
+
+  def ungroup[A](ll : List[List[A]]) : List[A] = ll.flatten
+
+  def boxs[A](m : Matrix[A]) : Matrix[A] =  {
+    (((a: Matrix[A])             => a.map(z => group(z))) andThen
+    ((x: List[List[List[A]]])       => group(x)) andThen
+    ((x: List[List[List[List[A]]]]) => x.map(z => columns(z))) andThen
+    ((x: List[Matrix[List[A]]]) => ungroup(x)) andThen
+    ((x: List[Row[List[A]]])       => x.map(z => ungroup(z))))(m)
+  }
+
+
+  val rows: Grid => List[Row[Digit]] = { matrix => matrix }
+
+  def columns[A](grid: Matrix[A]): Matrix[A] = {
+    grid match {
+      case Nil => Nil
+      case xs :: Nil => for {
+        x <- xs
+      } yield List(x)
+      case xs :: xss =>
+        (xs, columns(xss)).zipped map (_ :: _)
+    }
+  }
+
+
   val valid: Grid => Boolean = {
     grid =>
-
-      val rows: Grid => List[Row[Digit]] = { matrix => matrix }
-
-      def columns(grid: Grid): Grid = {
-        grid match {
-          case Nil => Nil
-          case xs :: Nil => for {
-            x <- xs
-          } yield List(x)
-          case xs :: xss =>
-            (xs, columns(xss)).zipped map (_ :: _)
-        }
-      }
-
-      def group(grid: Grid): List[Grid] = {
-        grid match {
-          case Nil => Nil
-          case _   => (grid take 3) :: group(grid drop 3)
-        }
-      }
       false
   }
 
@@ -70,5 +85,6 @@ trait Exercise {
   val solve: Grid => List[Grid] = {
     (filterGrid compose expand compose choices)
   }
+
 
 }

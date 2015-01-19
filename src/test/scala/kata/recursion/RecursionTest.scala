@@ -4,7 +4,7 @@ import org.specs2.mutable._
 import org.junit.runner._
 import org.specs2.runner._
 import org.specs2.ScalaCheck
-import org.scalacheck.Prop
+import org.scalacheck.Prop._
 
 @RunWith(classOf[JUnitRunner])
 class RecursionTest extends Specification with ScalaCheck {
@@ -31,7 +31,7 @@ class RecursionTest extends Specification with ScalaCheck {
     }
 
     "für alle Werte die richtigen 'takes' ermitteln" in {
-      check { (n: Int, liste: List[Int]) => n > 0 ==> (solution.take(liste, n) must beEqualTo(liste.take(n))) }
+      forAll { (n: Int, liste: List[Int]) => ( n > 0 ) ==> (solution.take(liste, n) must beEqualTo(liste.take(n))) }
     }
 
     "für 2 Listen die richtige Addition durchführen" in {

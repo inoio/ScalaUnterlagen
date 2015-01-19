@@ -6,16 +6,12 @@ trait Exercise {
    * Implementiere eine Gerade  nach der Formel f(x) = m * x + y0
    * @return Double => Double
    */
-  def gerade(m: Double, y0: Double): Double => Double = {
-   x => m * x + y0
-  }
+  def gerade(m: Double, y0: Double): Double => Double = ???
 
   /**
    * Überführe die Funktion gerade mit einer Zeile in die folgende Gestalt.
    */
-  def foo: (Double => (Double => (Double => Double))) = {
-   (gerade _).curried
-  }
+  def foo: (Double => (Double => (Double => Double))) = ???
 
   /**
    * Verwandel die Methode f (Übergabeparameter) in die Gestalt
@@ -23,7 +19,5 @@ trait Exercise {
    * also 3 Eingangsparameter und als Rückgabefunktion ein Double
    * @see scala.Function
    */
-  def bar(f: (Double => (Double => (Double => Double)))): (Double, Double, Double) => Double = {
-   Function.uncurried(f)
-  }
+  def bar(f: (Double => (Double => (Double => Double)))): (Double, Double, Double) => Double = ???
 }

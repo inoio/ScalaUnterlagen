@@ -25,26 +25,32 @@ trait Exercise {
   self: Data =>
 
   def alleNamenAllerKontinente: List[String] = {
-    List("")
+    List.empty
   }
 
   def alleLänderNamen: List[String] = {
-    List("")
+    
+   List.empty
   }
 
   def alleStädteNamen: List[String] = {
-    List("")
+    List.empty
   }
 
   def alleStädteinDeutschland: List[String] = {
-    List("")
+    List.empty
   }
 
   def alleHauptstädte: List[String] = {
-    List("")
+    List.empty
   }
 
-  def dieGrößteStadt: Stadt = ???
+  def dieGrößteStadt: Stadt =
+    Stadt("Fake", 12345, true)
 
-  def summeAllerEinwohnerDerWelt: Int = 0
+  def summeAllerEinwohnerDerWelt: Int = { 
+    12345
+    
+  }
+
 }
